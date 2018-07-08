@@ -9,19 +9,28 @@ export const store = new Vuex.Store({
       {
         type: 'Common: *, div, #id, .class',
         description: 'Select element(s) by tag, id or class',
-        text: '&lt;div id="my-id" class="my-class"&gt;<br><div>&lt;p <p>Hello my little world!</p> &gt;p</div><br>&lt;/div&gt;'
+        text: `&lt;div class="my-class"&gt;<div>
+                  Well,
+                  <p id="my-id">&lt;p id="my-id"&gt;
+                      hello, my <span>&lt;span&gt;little&lt;/span&gt;</span> world!
+                  &lt;/p&gt;</p>
+              </div>&lt;/div&gt;`,
+        path: 'selectors/common'
       },
       {
         type: 'Relationship between elements',
         description: 'Describe selectors by setting relationship between elements',
-        text: '<div>Hey Ho!</div>'
+        text: '<div>Hey Ho!</div>',
+        path: 'selectors/relationship'
       },
       {
         type: 'Pseudo-classes',
         description: 'A pseudo-class is used to define a special state of an element',
-        text: ''
+        text: '',
+        path: 'selectors/pseudo'
       }
-    ]
+    ],
+
   },
   getters: {
     getSelectors(state) {

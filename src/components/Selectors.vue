@@ -3,12 +3,18 @@
     <h1 class="h1 red-text text-accent-2 center">Selectors</h1>
     <div class="divider"></div>
     <div class="wrapper">
-      <card-panel v-for="(selector, index) in selectors"
-                  :type="selector.type"
-                  :key="'Selector_' + index"
-                  :style="'animation-delay: ' + index * .05 + 's'"
-                  >
-      </card-panel>
+
+      <router-link v-for="(selector, index) in selectors"
+                   :key="'Selector_' + index"
+                   @click="chooseSelector"
+                   :to="selector.path"
+                   >
+        <card-panel :style="'animation-delay: ' + index * .05 + 's'"
+                    :type="selector.type"
+                    >
+        </card-panel>
+      </router-link>
+      
     </div>
   </div> 
 </template>
@@ -19,6 +25,11 @@ export default {
   data() {
     return {
       selectors: this.$store.getters.getSelectors
+    }
+  },
+  methods: {
+    chooseSelector() {
+      
     }
   },
   mounted() {

@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Selectors from './components/Selectors';
+import CommonSelectors from './components/selectors/CommonSelectors';
 import Two from './components/Two';
 import Three from './components/Three';
 import Main from './components/Main';
@@ -15,6 +16,10 @@ const routes = [
   {
     path: '/selectors',
     component: Selectors
+  },
+  {
+    path: '/selectors/common',
+    component: CommonSelectors
   },
   {
     path: '/two',
@@ -33,6 +38,6 @@ const routes = [
 
 export const router = new VueRouter({
   routes,
-  mode: 'history',
+  // mode: 'history',
   
 });

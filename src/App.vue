@@ -64,8 +64,7 @@ export default {
     Selectors,
     Two,
     Three,
-    Main,
-    CardPanel
+    Main
   },
 
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="card-panel red lighten-3 white-text">{{ type }}</div>
+  <div class="card-panel red lighten-3 white-text waves-effect waves-light">{{ type }}</div>
 </template>
 <script>
   
