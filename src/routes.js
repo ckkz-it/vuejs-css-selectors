@@ -3,18 +3,18 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import One from './components/One';
+import Selectors from './components/Selectors';
 import Two from './components/Two';
 import Three from './components/Three';
 import Main from './components/Main';
 
 
-import {store} from './store';
+// import {store} from './store';
 
 const routes = [
   {
-    path: '/one',
-    component: One
+    path: '/selectors',
+    component: Selectors
   },
   {
     path: '/two',

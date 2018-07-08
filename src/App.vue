@@ -3,13 +3,15 @@
 
     <div class="navbab-fixed">
       <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper"
+             :class="className"
+             >
           <ul>
-            <router-link to="/one"
+            <router-link to="/selectors"
                          tag="li"
                          active-class="active"
                          >
-                         <a>Tags</a>
+                         <a>Selectors</a>
             </router-link>
             <router-link to="/two"
                          tag="li"
@@ -28,21 +30,19 @@
       </nav>
     </div>
 
-    <div class="main">
-      
-      <router-view></router-view>
+    <router-view></router-view>
 
-    </div>
 
   </div>
 </template>
 
 <script>
 
-import One from './components/One';
+import Selectors from './components/Selectors';
 import Two from './components/Two';
 import Three from './components/Three';
 import Main from './components/Main';
+import CardPanel from './components/CardPanel';
 
 export default {
   data () {
@@ -50,17 +50,25 @@ export default {
 
     }
   },
-  components: {
-    One,
-    Two,
-    Three,
-    Main
+  computed: {
+    className() {
+      if (false) {
+        return 'teal';
+      }
+    }
   },
   methods: {
+    
+  },
+  components: {
+    Selectors,
+    Two,
+    Three,
+    Main,
+    CardPanel
+  },
 
-  }
 }
 </script>
 
 <style lang="sass" src="../sass/app.sass"></style>
-<style lang="scss" src="../sass/materialize.scss"></style>
