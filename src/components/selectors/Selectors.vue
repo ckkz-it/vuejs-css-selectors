@@ -19,7 +19,7 @@
   </div> 
 </template>
 <script>
-import CardPanel from "./CardPanel"
+import CardPanel from "../CardPanel"
   
 export default {
   data() {
@@ -31,9 +31,6 @@ export default {
     chooseSelector() {
       
     }
-  },
-  mounted() {
-
   },
   components: {
     CardPanel

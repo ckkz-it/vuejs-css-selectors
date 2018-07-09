@@ -3,8 +3,11 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import Selectors from './components/Selectors';
+import Selectors from './components/selectors/Selectors';
 import CommonSelectors from './components/selectors/CommonSelectors';
+import RelationSelectors from './components/selectors/RelationSelectors';
+import PseudoClassesSelectors from './components/selectors/PseudoClassesSelectors';
+import PseudoElements from './components/selectors/PseudoElements';
 import Two from './components/Two';
 import Three from './components/Three';
 import Main from './components/Main';
@@ -20,6 +23,18 @@ const routes = [
   {
     path: '/selectors/common',
     component: CommonSelectors
+  },
+  {
+    path: '/selectors/relation',
+    component: RelationSelectors
+  },
+  {
+    path: '/selectors/pseudoclasses',
+    component: PseudoClassesSelectors
+  },
+  {
+    path: '/selectors/pseudoelements',
+    component: PseudoElements
   },
   {
     path: '/two',
@@ -38,6 +53,6 @@ const routes = [
 
 export const router = new VueRouter({
   routes,
-  // mode: 'history',
+  mode: 'history',
   
 });

@@ -2,9 +2,8 @@
   <div class="wrapper">
 
     <div class="navbab-fixed">
-      <nav>
+      <nav :class="className">
         <div class="nav-wrapper"
-             :class="className"
              >
           <ul>
             <router-link to="/selectors"
@@ -30,7 +29,9 @@
       </nav>
     </div>
 
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
 
 
   </div>
@@ -38,7 +39,7 @@
 
 <script>
 
-import Selectors from './components/Selectors';
+import Selectors from './components/selectors/Selectors';
 import Two from './components/Two';
 import Three from './components/Three';
 import Main from './components/Main';
@@ -52,13 +53,20 @@ export default {
   },
   computed: {
     className() {
-      if (false) {
+      if (this.$route.path.indexOf('selectors') != -1) {
+        return '';
+      } else if (this.$route.path.indexOf('two') != -1) {
         return 'teal';
+      } else if (this.$route.path.indexOf('three') != -1) {
+        return 'amber darken-3';
       }
     }
   },
   methods: {
     
+  },
+  created() {
+    this.$store.dispatch('toHtml');
   },
   components: {
     Selectors,
