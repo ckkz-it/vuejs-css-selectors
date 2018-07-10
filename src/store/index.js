@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
         text: `<div class="my-class">Well,
                   <p id="my-id">hello, my <span>little</span> world!</p>
                 </div>`,
-        path: 'selectors/common'
+        path: 'common'
       },
       {
         type: 'Relationship between elements',
@@ -31,7 +31,7 @@ export const store = new Vuex.Store({
             <li>relationship</li>
             <li>selectors!</li>
           </ol>`,
-        path: 'selectors/relation'
+        path: 'relation'
       },
       {
         type: 'Pseudo-classes',
@@ -53,13 +53,13 @@ export const store = new Vuex.Store({
             <li>classes</li>
             <li>too!</li>
           </ol>`,
-        path: 'selectors/pseudoclasses'
+        path: 'pseudoclasses'
       },
       {
         type: 'Pseudo-elements',
         description: 'A CSS pseudo-element is used to style specified parts of an element',
         text: `<div>This is simple <p>example</p> of <span class="my-class">way</span> to use pseudo-elements</div>`,
-        path: 'selectors/pseudoelements'
+        path: 'pseudoelements'
       },
       {
         type: 'Attributes',
@@ -73,7 +73,7 @@ export const store = new Vuex.Store({
                 <p data="va lue">One of values divided by space</p>
                 <p data="eulavym">Ends with</p>
               </div>`,
-        path: 'selectors/attributes'
+        path: 'attributes'
       }
     ],
   htmlFilled: false,

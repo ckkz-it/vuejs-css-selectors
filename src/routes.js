@@ -23,27 +23,29 @@ const routes = [
     beforeEnter: (to, from, next) => {
       store.dispatch('onChangeTheme', 'red');
       next();
-    }
-  },
-  {
-    path: '/selectors/common',
-    component: CommonSelectors
-  },
-  {
-    path: '/selectors/relation',
-    component: RelationSelectors
-  },
-  {
-    path: '/selectors/pseudoclasses',
-    component: PseudoClassesSelectors
-  },
-  {
-    path: '/selectors/pseudoelements',
-    component: PseudoElements
-  },
-  {
-    path: '/selectors/attributes',
-    component: AttrSelectors
+    },
+    children: [
+      {
+        path: 'common',
+        component: CommonSelectors
+      },
+      {
+        path: 'relation',
+        component: RelationSelectors
+      },
+      {
+        path: 'pseudoclasses',
+        component: PseudoClassesSelectors
+      },
+      {
+        path: 'pseudoelements',
+        component: PseudoElements
+      },
+      {
+        path: 'attributes',
+        component: AttrSelectors
+      }
+    ]
   },
   {
     path: '/two',
@@ -63,7 +65,7 @@ const routes = [
     }
   },
   {
-    path: '/',
+    path: '',
     component: Main,
     beforeEnter: (to, from, next) => {
       store.dispatch('onChangeTheme', 'red');
