@@ -18,8 +18,7 @@ export default {
 
 .card-panel
   font-size: 20px
-  flex-basis: 30%
-  +xs(flex-basis, 100%)
+  width: 350px
   margin-left: 15px 
   margin-right: 15px
   cursor: pointer

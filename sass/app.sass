@@ -3,23 +3,33 @@
 .tag
   font-weight: bold
   color: #A7413E
-.value
+.val
   color: #90C362
 .attr
   font-weight: bold
   color: #D2945D
 
+.wrapper .container .card
+  margin-bottom: 50px
+
 .wrapper
   nav
     transition: background-color .25s
-    .nav-wrapper
-      ul
-        display: flex
-        justify-content: center
-        a
-          padding: 0 50px
-          +xs(padding, 0 20px)
-          font-size: 1.2rem
+.nav-wrapper
+  ul
+  display: flex
+  justify-content: center
+  a
+    padding: 0 50px
+    +xs(padding, 0 20px)
+    font-size: 1.2rem
+.to-main
+  position: absolute
+  left: 30px
+  top: 12px
+  font-size: 16px
+  cursor: pointer
+
 
 
 

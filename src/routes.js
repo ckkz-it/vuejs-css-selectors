@@ -8,17 +8,22 @@ import CommonSelectors from './components/selectors/CommonSelectors';
 import RelationSelectors from './components/selectors/RelationSelectors';
 import PseudoClassesSelectors from './components/selectors/PseudoClassesSelectors';
 import PseudoElements from './components/selectors/PseudoElements';
+import AttrSelectors from './components/selectors/AttrSelectors';
 import Two from './components/Two';
 import Three from './components/Three';
 import Main from './components/Main';
 
 
-// import {store} from './store';
+import {store} from './store';
 
 const routes = [
   {
     path: '/selectors',
-    component: Selectors
+    component: Selectors,
+    beforeEnter: (to, from, next) => {
+      store.dispatch('onChangeTheme', 'red');
+      next();
+    }
   },
   {
     path: '/selectors/common',
@@ -37,17 +42,33 @@ const routes = [
     component: PseudoElements
   },
   {
+    path: '/selectors/attributes',
+    component: AttrSelectors
+  },
+  {
     path: '/two',
-    component: Two
+    component: Two,
+    beforeEnter: (to, from, next) => {
+      store.dispatch('onChangeTheme', 'teal');
+      next();
+    }
   },
   {
     path: '/three',
     component: Three,
-    activeClass: 'active'
+    activeClass: 'active',
+    beforeEnter: (to, from, next) => {
+      store.dispatch('onChangeTheme', 'orange');
+      next();
+    }
   },
   {
     path: '/',
-    component: Main
+    component: Main,
+    beforeEnter: (to, from, next) => {
+      store.dispatch('onChangeTheme', 'red');
+      next();
+    }
   }
 ];
 

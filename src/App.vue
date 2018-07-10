@@ -2,9 +2,13 @@
   <div class="wrapper">
 
     <div class="navbab-fixed">
-      <nav :class="className">
-        <div class="nav-wrapper"
-             >
+      <nav :class="`${theme} lighten-2`">
+        <div class="nav-wrapper">
+          <button :class="`to-main btn ${theme} lighten-2 waves-effect waves-light hide-on-med-and-down`"
+                  @click.prevent="toMainPage"
+                  >
+                  Back to main
+          </button>
           <ul>
             <router-link to="/selectors"
                          tag="li"
@@ -16,13 +20,13 @@
                          tag="li"
                          active-class="active"
                          >
-                         <a>Styles</a>
+                         <a>Something</a>
             </router-link>
             <router-link to="/three"
                          tag="li"
                          active-class="active"
                          >
-                         <a>Buttons</a>
+                         <a>Something</a>
             </router-link>
           </ul>
         </div>
@@ -52,18 +56,14 @@ export default {
     }
   },
   computed: {
-    className() {
-      if (this.$route.path.indexOf('selectors') != -1) {
-        return '';
-      } else if (this.$route.path.indexOf('two') != -1) {
-        return 'teal';
-      } else if (this.$route.path.indexOf('three') != -1) {
-        return 'amber darken-3';
-      }
+    theme(){
+      return this.$store.getters.getTheme;
     }
   },
   methods: {
-    
+    toMainPage() {
+      this.$router.push('/');
+    }
   },
   created() {
     this.$store.dispatch('toHtml');
@@ -74,7 +74,6 @@ export default {
     Three,
     Main
   },
-
 }
 </script>
 

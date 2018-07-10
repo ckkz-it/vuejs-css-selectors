@@ -6,7 +6,6 @@
 
       <router-link v-for="(selector, index) in selectors"
                    :key="'Selector_' + index"
-                   @click="chooseSelector"
                    :to="selector.path"
                    >
         <card-panel :style="'animation-delay: ' + index * .05 + 's'"
@@ -24,13 +23,15 @@ import CardPanel from "../CardPanel"
 export default {
   data() {
     return {
-      selectors: this.$store.getters.getSelectors
+      selectors: this.$store.getters.getSelectors,
+      theme: this.$store.getters.getTheme
     }
   },
+  computed: {
+
+  },
   methods: {
-    chooseSelector() {
-      
-    }
+
   },
   components: {
     CardPanel
@@ -41,7 +42,6 @@ export default {
 
 <style lang="sass" scoped>
 @import "sass/smart-grid"
-// @import "sass/materialize.scss"
 
 .divider
   margin-bottom: 30px
@@ -50,4 +50,6 @@ export default {
   flex-wrap: wrap
   justify-content: space-around
   text-align: center
+  max-width: 1200px
+  margin: 0 auto
 </style>

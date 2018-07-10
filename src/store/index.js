@@ -60,13 +60,31 @@ export const store = new Vuex.Store({
         description: 'A CSS pseudo-element is used to style specified parts of an element',
         text: `<div>This is simple <p>example</p> of <span class="my-class">way</span> to use pseudo-elements</div>`,
         path: 'selectors/pseudoelements'
+      },
+      {
+        type: 'Attributes',
+        description: 'The [attribute] selector is used to select elements with a specified attribute.',
+        text: `<div>
+                <p data>Attribute is set</p>
+                <p data="value">Equal</p>
+                <p data="myvalue">Starts with</p>
+                <p data="value-1">Equal or starts with value-*</p>
+                <p data="my value">Contain substring</p>
+                <p data="va lue">One of values divided by space</p>
+                <p data="eulavym">Ends with</p>
+              </div>`,
+        path: 'selectors/attributes'
       }
     ],
-  htmlFilled: false
+  htmlFilled: false,
+  theme: 'red'
   },
   getters: {
     getSelectors(state) {
       return state.selectors;
+    },
+    getTheme(state) {
+      return state.theme;
     }
   },
   mutations: {
@@ -77,6 +95,9 @@ export const store = new Vuex.Store({
           inputType: 'manual'
         });
       }
+    },
+    changeTheme(state, theme) {
+      state.theme = theme;
     }
   },
   actions: {
@@ -84,6 +105,9 @@ export const store = new Vuex.Store({
       if (store.state.htmlFilled === false) {
         store.commit('toHtml');
       }
+    },
+    onChangeTheme(store, theme) {
+      store.commit('changeTheme', theme)
     }
   },
   strict: process.env.NODE_ENV !== 'production'
