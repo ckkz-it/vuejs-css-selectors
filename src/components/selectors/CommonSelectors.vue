@@ -26,7 +26,7 @@
                     @selectElem="selectElem"
                     :key="index"
                     >
-          <span slot="select">Select</span></span>
+          <span slot="select">Select</span>
           </checkbox>
         </div>
       </div>

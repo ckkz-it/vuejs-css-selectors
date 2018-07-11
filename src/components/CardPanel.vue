@@ -2,16 +2,12 @@
   <div class="card-panel red lighten-3 white-text waves-effect waves-light">{{ type }}</div>
 </template>
 <script>
-  
 export default {
-  props: ['type'],
+  props: ["type"],
   data() {
-    return {
-     
-    }
+    return {};
   }
-}
-
+};
 </script>
 <style lang="sass" scoped>
 @import "sass/smart-grid"

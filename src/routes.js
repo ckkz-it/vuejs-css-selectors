@@ -14,7 +14,7 @@ import Three from './components/Three';
 import Main from './components/Main';
 
 
-import {store} from './store';
+import { store } from './store';
 
 const routes = [
   {
@@ -24,28 +24,26 @@ const routes = [
       store.dispatch('onChangeTheme', 'red');
       next();
     },
-    children: [
-      {
-        path: 'common',
-        component: CommonSelectors
-      },
-      {
-        path: 'relation',
-        component: RelationSelectors
-      },
-      {
-        path: 'pseudoclasses',
-        component: PseudoClassesSelectors
-      },
-      {
-        path: 'pseudoelements',
-        component: PseudoElements
-      },
-      {
-        path: 'attributes',
-        component: AttrSelectors
-      }
-    ]
+  },
+  {
+    path: '/selectors/common',
+    component: CommonSelectors
+  },
+  {
+    path: '/selectors/relation',
+    component: RelationSelectors
+  },
+  {
+    path: '/selectors/pseudoclasses',
+    component: PseudoClassesSelectors
+  },
+  {
+    path: '/selectors/pseudoelements',
+    component: PseudoElements
+  },
+  {
+    path: '/selectors/attributes',
+    component: AttrSelectors
   },
   {
     path: '/two',
