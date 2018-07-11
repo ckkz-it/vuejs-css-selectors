@@ -42,39 +42,36 @@
 </template>
 
 <script>
-
-import Selectors from './components/selectors/Selectors';
-import Two from './components/Two';
-import Three from './components/Three';
-import Main from './components/Main';
-import CardPanel from './components/CardPanel';
+import Selectors from "./components/selectors/Selectors";
+import Two from "./components/Two";
+import Three from "./components/Three";
+import Main from "./components/Main";
+import CardPanel from "./components/CardPanel";
 
 export default {
-  data () {
-    return {
-
-    }
+  data() {
+    return {};
   },
   computed: {
-    theme(){
+    theme() {
       return this.$store.getters.getTheme;
     }
   },
   methods: {
     toMainPage() {
-      this.$router.push('/');
+      this.$router.push("/");
     }
   },
   created() {
-    this.$store.dispatch('toHtml');
+    this.$store.dispatch("toHtml");
   },
   components: {
     Selectors,
     Two,
     Three,
     Main
-  },
-}
+  }
+};
 </script>
 
 <style lang="sass" src="../sass/app.sass"></style>

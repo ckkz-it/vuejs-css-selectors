@@ -49,36 +49,43 @@
   </div>
 </template>
 <script>
-import checkbox from './Checkbox';
-  
+import checkbox from "./Checkbox";
+
 export default {
   props: [],
   data() {
     return {
       description: this.$store.getters.getSelectors[2].description,
       html: this.$store.getters.getSelectors[2].html,
-      selectors: ['li:first-child', 'li:last-child', 'li:only-child', 'li:nth-child(5)', 'li:nth-child(2n)',
-                  'li:nth-child(2n+1)', 'li:nth-last-child(3)', 'li:last-of-type']
-    }
+      selectors: [
+        "li:first-child",
+        "li:last-child",
+        "li:only-child",
+        "li:nth-child(5)",
+        "li:nth-child(2n)",
+        "li:nth-child(2n+1)",
+        "li:nth-last-child(3)",
+        "li:last-of-type"
+      ]
+    };
   },
   methods: {
     selectElem(e) {
-      let elem  = document.querySelectorAll('#select-region ' + e.selector),
-          checked = e.checked;
+      let elem = document.querySelectorAll("#select-region " + e.selector),
+        checked = e.checked;
       for (let i = 0; i < elem.length; i++) {
         if (checked == true) {
-          elem[i].classList.add('selected');
+          elem[i].classList.add("selected");
         } else {
-          elem[i].classList.remove('selected');
+          elem[i].classList.remove("selected");
         }
-      } 
+      }
     }
   },
   components: {
     checkbox
   }
-}
-
+};
 </script>
 
 <style lang="sass" scoped>

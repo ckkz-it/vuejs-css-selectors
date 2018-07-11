@@ -6,24 +6,20 @@
 
 </template>
 <script>
-  
 export default {
   data() {
-    return {
-      
-    }
+    return {};
   },
   computed: {
     theme() {
-      return this.$store.getters.getTheme
+      return this.$store.getters.getTheme;
     }
   }
-}
-
+};
 </script>
 
 <style lang="sass" scoped>
-.container
+.container  
   max-width: 1200px
 
   h1

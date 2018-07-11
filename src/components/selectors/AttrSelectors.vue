@@ -41,35 +41,41 @@
   </div>
 </template>
 <script>
-import checkbox from './Checkbox';
-  
+import checkbox from "./Checkbox";
+
 export default {
   data() {
     return {
       description: this.$store.getters.getSelectors[4].description,
       html: this.$store.getters.getSelectors[4].html,
-      selectors: ['[data]', '[data="value"]', '[data^="myv"]', '[data|="value"]',
-                  '[data*="val"]', '[data~="lue"]', '[data$="vym"]']
-    }
+      selectors: [
+        "[data]",
+        '[data="value"]',
+        '[data^="myv"]',
+        '[data|="value"]',
+        '[data*="val"]',
+        '[data~="lue"]',
+        '[data$="vym"]'
+      ]
+    };
   },
   methods: {
     selectElem(e) {
-      let elem  = document.querySelectorAll('#select-region p' + e.selector),
-          checked = e.checked;
+      let elem = document.querySelectorAll("#select-region p" + e.selector),
+        checked = e.checked;
       for (let i = 0; i < elem.length; i++) {
         if (checked == true) {
-          elem[i].classList.add('selected');
+          elem[i].classList.add("selected");
         } else {
-          elem[i].classList.remove('selected');
+          elem[i].classList.remove("selected");
         }
-      } 
+      }
     }
   },
   components: {
     checkbox
   }
-}
-
+};
 </script>
 
 <style lang="sass" scoped>
