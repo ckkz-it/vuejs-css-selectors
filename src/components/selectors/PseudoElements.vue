@@ -17,13 +17,13 @@
 
       <div class="card-action">
         <div id="checkboxes">
-          <checkbox v-for="(selector, index) in selectors"
+          <radio v-for="(selector, index) in selectors"
                     :name="selector"
                     @selectElem="selectElem"
                     :key="index"
                     >
           <span slot="pseudo-elements">{{ pseudoElems[index] }}</span>
-          </checkbox>
+          </radio>
         </div>
       </div>
 
@@ -33,7 +33,7 @@
   </div>
 </template>
 <script>
-import checkbox from './Checkbox';
+import radio from './Radio';
   
 export default {
   props: [],
@@ -45,37 +45,38 @@ export default {
       pseudoElems: ['::first-letter', '::selection (select text)', '::before, ::after']
     }
   },
-  methods: {
+  methods: { 
     selectElem(e) {
-      let elem  = document.querySelector('#select-region ' + e.selector),
-          checked = e.checked;
+      let elem     = document.querySelector('#select-region ' + e.selector),
+          elemAll  = document.querySelectorAll('#select-region *'),
+          checked  = e.checked;
+
+      for (let i = 0; i < elemAll.length; i++) {
+          elemAll[i].classList.remove('selected-p');
+          elemAll[i].classList.remove('selected-div');
+          elemAll[i].classList.remove('selected-my-class');
+      }
 
       switch(e.selector) {
         case 'p':
           if (checked == true) {
             elem.classList.add('selected-p');
-          } else {
-              elem.classList.remove('selected-p');
-            }
+          }
           break;
         case 'div':
           if (checked == true) {
             elem.classList.add('selected-div');
-          } else {
-              elem.classList.remove('selected-div');
           }
           break;
         case '.my-class':
           if (checked == true) {
               elem.classList.add('selected-my-class');
-            } else {
-                elem.classList.remove('selected-my-class');
             }
       }
     }
   },
   components: {
-    checkbox
+    radio
   }
 }
 

@@ -1,7 +1,8 @@
 <template>
   <label>
-    <input type="checkbox"
+    <input type="radio"
            @input="onSelectElem($event, name)"
+           name="radio"
            >
     <span>
       <slot name="select"><span class="selector">Select {{ name }}</span></slot>

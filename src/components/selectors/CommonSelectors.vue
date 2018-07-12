@@ -21,13 +21,13 @@
 
       <div class="card-action">
         <div id="checkboxes">
-          <checkbox v-for="(selector, index) in selectors"
+          <radio v-for="(selector, index) in selectors"
                     :name="selector"
                     @selectElem="selectElem"
                     :key="index"
                     >
           <span slot="select">Select</span>
-          </checkbox>
+          </radio>
         </div>
       </div>
 
@@ -37,7 +37,7 @@
   </div>
 </template>
 <script>
-import checkbox from './Checkbox';
+import radio from './Radio';
   
 export default {
   props: [],
@@ -51,18 +51,20 @@ export default {
   methods: {
     selectElem(e) {
       let elem  = document.querySelectorAll('#select-region ' + e.selector),
+          elemAll  = document.querySelectorAll('#select-region *'),
           checked = e.checked;
-      for (let i = 0; i < elem.length; i++) {
-        if (checked == true) {
-          elem[i].classList.add('selected');
-        } else {
-          elem[i].classList.remove('selected');
+      for (let i = 0; i < elemAll.length; i++) {
+          elemAll[i].classList.remove('selected');
+      }
+      if (checked) {
+        for (let i = 0; i < elem.length; i++) {
+            elem[i].classList.add('selected');
         }
       } 
     }
   },
   components: {
-    checkbox
+    radio
   }
 }
 
